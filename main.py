@@ -6,7 +6,7 @@ import time,hashlib
 x = 0
 dataVal = float(input("enter value upto 2 decimal places"))
 ownerName = input("enter the name of the owner")
-prOwnerId = 1
+prOwnerId = 500
 class node:
   def __init__(self,gen):
     if gen is 0:
@@ -58,5 +58,9 @@ class node:
 genesisNode = node(0)
 
 def new_user():
-  
-  
+  global prOwnerId
+  name = input("enter name")
+  ownerId = prOwnerId + 1
+  prOwnerId += 1
+
+#rest of the logic not created
