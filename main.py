@@ -18,8 +18,8 @@ class node:
       self.refNodeId = None
       self.childRefNodeId = ''
       self.genRefNodeId = ''
-      self.data = self.encrypt(val = dataVal, owner = ownerName)
-      self.hashVal = hashlib.md5(str([self.timestamp, self.data, self.nodeNum, self.nodeId, self.refNodeId, self.childRefNodeId, self.genRefNodeId]))
+      self.data = self.encrypt(val = dataVal, owner = ownerName, ownerId = prOwnerId)
+      self.hashVal = hashlib.md5(str([self.timeStamp, self.data, self.nodeNum, self.nodeId, self.refNodeId, self.childRefNodeId, self.genRefNodeId]))
 
 
 
@@ -44,7 +44,7 @@ class node:
 
 
 
-  def get_secret_key():
+  def get_secret_key(self):
     AES_key_length = 32
     secret_key = os.urandom(AES_key_length)
     encoded_secret_key = base64.b64encode(secret_key)
